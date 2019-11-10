@@ -1,0 +1,170 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\title{Title}								% Title
+\author{M. H. Shaikh, H. F. Ahmed, H. F. Ahmed, K. Abbasi, F. A. Khan}								% Author
+\date{\today}											% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{title}
+\cfoot{\thepage}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+    \includegraphics[scale = 0.47]{logo.png}\\[1.0 cm]	% University Logo
+    \textsc{\LARGE Habib University}\\[1.0 cm]	% University Name
+	\textsc{\Large CS412}\\[0.5 cm]				% Course Code
+	\textsc{\large Design and Analysis of Algorithms}\\[0.5 cm]				% Course Name
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \huge \bfseries \thetitle}\\
+	\rule{\linewidth}{0.2 mm} \\[0.5 cm]
+	{Abbasi, Kainat\\
+            \texttt{ka04051@st.habib.edu.pk}} \\
+    {Feroz, Huda\\
+    \texttt{ha04081@st.habib.edu.pk}} \\
+    {Feroz, Hareem\\
+    \texttt{hf04097@st.habib.edu.pk}} \\
+    {Khan, Faraz\\
+            \texttt{ka04051@st.habib.edu.pk}} \\
+	{Shaikh, Mudasir\\
+            \texttt{ms03831@st.habib.edu.pk}} \\
+	\rule{\linewidth}{0.2 mm} \\[0.5 cm]
+	{Submitted to:}\\
+			Dr. Shahid  Hussain \\
+	{\large \thedate}\\[2 cm]
+	\vfill
+	
+\end{titlepage}
+
+\begin{center}
+\section*{Abstract}
+\end{center}
+Abstract
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\tableofcontents
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+Intro
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Resources Utilized}
+For the entirety of the project and this report, the following resources were utilized:
+\begin{itemize}
+    \item Python 3.
+    \item .
+    \item .
+    \item .
+    \item . 
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{About the Data}
+.
+\subsection{Pre-processing}
+.
+\begin{center}
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|c|} 
+\hline
+ & . & . & . & . \\ [0.5ex]
+\hline \hline
+. & \texttt{.} & \texttt{.}  & \texttt{.} & \textbf{.} \\ 
+\hline
+. & \texttt{.} & \texttt{.}  & \texttt{.} & \textbf{.} \\ 
+\hline
+. & \texttt{.} & \texttt{.}  & \texttt{.} & \textbf{.} \\ 
+\hline
+\end{tabular} \\
+\caption{Data}
+\label{table:1}
+\end{table}
+\end{center}
+
+\subsubsection{Technique}
+
+
+\newpage
+\section{Results}
+\begin{figure}[H] \begin{center}
+     \includegraphics[width=0.8\columnwidth]{logo.png}
+        \caption{
+                .caption here
+        } \end{center}
+\end{figure} 
+
+
+\section{Conclusion}
+
+\newpage
+
+\section{Future Work}
+
+\section{Acknowledgements}
+
+\section{Appendix}
+.
+
+\begin{thebibliography}{99}
+
+
+\bibitem{citation}
+names, \href{https://jstor.org }{``title"} %insert link here and correpsonding authors and the paper name
+(Journal Name, Volume no, Issue no, month-year ).
+
+\end{thebibliography}
+
+
+\end{document}

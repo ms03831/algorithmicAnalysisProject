@@ -9,13 +9,13 @@ def powerset(items):
 
 def knapsack_brute_force(items, capacity):
     knapsack = []
-    best_value = 0
+    bestValue = 0
     output = ['0' for i in range(len(items))]
     
     for element in powerset(items):
-        set_weight = sum([e[1] for e in element])
-        set_value = sum([e[2] for e in element])
-        if set_value > best_value and set_weight <= capacity:
+        setWeight = sum([e[1] for e in element])
+        setValue = sum([e[2] for e in element])
+        if setValue > bestValue and setWeight <= capacity:
     
             knapsack = element
             

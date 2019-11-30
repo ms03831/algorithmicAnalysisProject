@@ -19,5 +19,5 @@ def greedyAlgo(weightValue,capacity):
 
 
 
-print(greedyAlgo([("a",10,60),("b",40,40),("c",20,100),("d",30,120)],50))
+#print(greedyAlgo([("a",10,60),("b",40,40),("c",20,100),("d",30,120)],50))
 

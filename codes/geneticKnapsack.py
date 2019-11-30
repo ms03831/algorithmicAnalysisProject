@@ -5,9 +5,23 @@ class GeneticKnapsack:
     def __init__(self):
         self.populationSize = 250
         self.generations = 10
-        self.items = [[i, random.randint(0, 10),random.randint(0, 15)] for i in range(10)]
-        self.capacity = 20
+        self.items = None
+        self.capacity = None
 
+    def solve(self, items, capacity):
+        self.items = items
+        self.capacity = capacity
+        
+        generation = 1
+        population = self.spawn_starting_population()
+        for g in range(0, self.generations):
+            print("Generation %d with %d" % (generation, len(population)))
+            population = sorted(population, key=lambda x: self.fitness(x), reverse=True)
+            print('best score;', self.fitness(population[0]))     
+            population = self.evolve_population(population)
+            generation += 1
+        population = sorted(population, key=lambda x: self.fitness(x), reverse=True)
+        print(population[0], self.fitness(population[0]))
 
     def fitness(self, target):
         total_value = 0
@@ -17,8 +31,8 @@ class GeneticKnapsack:
             if index >= len(self.items):
                 break
             if (i == 1):
-                total_value += self.items[index][1]
-                total_weight += self.items[index][2]
+                total_value += self.items[index][2]
+                total_weight += self.items[index][1]
             index += 1
             
         if total_weight > self.capacity:
@@ -79,12 +93,7 @@ class GeneticKnapsack:
 
 if __name__ == "__main__":
     solver = GeneticKnapsack()
-    generation = 1
-    population = solver.spawn_starting_population()
-    for g in range(0, solver.generations):
-        print("Generation %d with %d" % (generation, len(population)))
-        population = sorted(population, key=lambda x: solver.fitness(x), reverse=True)
-        for i in population:        
-            print("%s, fit: %s" % (str(i), solver.fitness(i)))      
-        population = solver.evolve_population(population)
-        generation += 1
+    items = [[i, random.randint(0, 10),random.randint(0, 15)] for i in range(5)]
+    capacity = 10
+    print(items)
+    solver.solve(items, capacity)

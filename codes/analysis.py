@@ -7,11 +7,16 @@ from bruteForceKnapsack import *
 from SimulatedAnnealing import *
 from geneticKnapsack import *
 import matplotlib.pyplot as plt
+import seaborn as sns
 import random
+
+sns.set_style("darkgrid", {"axes.facecolor": ".9", "lines.linewidth": 2.5})
+
+
 
 class TestCases:
     def __init__(self):
-        self.n = [10, 25, 50, 100, 500, 1000, 2000, 3000, 4000, 5000, 10000]
+        self.n = [10, 25, 50, 100, 500, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]
         self.testsVaryingCapacity = dict()
         self.testsConstantCapacity = dict()
         self.__generateTests()

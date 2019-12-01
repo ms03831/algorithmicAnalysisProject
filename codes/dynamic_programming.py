@@ -1,22 +1,31 @@
+from myMemory import *
+
 def knapsack01_dp(items, limit):
+    n= len(items)
     table = [[0 for w in range(limit + 1)] for j in range(len(items) + 1)]
- 
+    Memory.updateMemory(n**2) # created 2-D list
     for j in range(1, len(items) + 1):
+        Memory.updateMemory(1)
         item, wt, val = items[j-1]
         for w in range(1, limit + 1):
             if wt > w:
+                Memory.updateMemory(1)  # 1 access to table memory
                 table[j][w] = table[j-1][w]
             else:
+                Memory.updateMemory(2)  # 2 access for comparing 2 table values
                 table[j][w] = max(table[j-1][w],
                                   table[j-1][w-wt] + val)
  
     result = []
     w = limit
     for j in range(len(items), 0, -1):
+        Memory.updateMemory(1) # 1 access to table memory on each iteration
         was_added = table[j][w] != table[j-1][w]
  
         if was_added:
+            Memory.updateMemory(1)
             item, wt, val = items[j-1]
+            Memory.updateMemory(1) # each append takes access to memory
             result.append(item)
             # result.append(items[j-1])
             w -= wt

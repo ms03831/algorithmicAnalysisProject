@@ -46,7 +46,7 @@ def MF_knapsack(i, wt, val, j, F):
         if j < wt[i - 1]:
             val = MF_knapsack(i - 1, wt, val, j, F)
         else:
-            Memory.updateMemory(1) #val[i-1]
+            Memory.updateMemory(2) # comaprison of 2 values
             val = max(
                 MF_knapsack(i - 1, wt, val, j, F),
                 MF_knapsack(i - 1, wt, val, j - wt[i - 1], F) + val[i - 1]

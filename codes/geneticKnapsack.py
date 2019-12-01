@@ -28,7 +28,7 @@ class GeneticKnapsack:
         population = sorted(population, key=lambda x: self.fitness(x), reverse=True)
         Memory.updateMemory(2)
         #print(population[0], self.fitness(population[0]))
-        return(population[0])
+        return([items[i][0] for i in range(len(population[0])) if population[0][i]])
 
     def fitness(self, target):
         total_value = 0
@@ -75,6 +75,31 @@ class GeneticKnapsack:
     def evolve_population(self, pop):
         parent_eligibility = 0.2
         mutation_chance = 0.1
+
+        parent_length = int(parent_eligibility*len(pop))
+
+        Memory.updateMemory(1) #slicing assumed to be O(1)
+        parents = pop[:parent_length]
+
+        # Breeding! Close the doors, please.
+        children = []
+        desired_length = len(pop) - len(parents)
+        while len(children) < desired_length :
+            Memory.updateMemory(6)
+            male = pop[random.randint(0,len(parents)-1)]
+            female = pop[random.randint(0,len(parents)-1)]        
+            half = len(male)//2
+            child = male[:half] + female[half:] # from start to half from father, from half to end from mother
+            if mutation_chance > random.random():
+                self.mutate(child)
+            children.append(child)
+        Memory.updateMemory(len(children))
+        parents.extend(children)
+        return parents
+    '''
+    def evolve_population(self, pop):
+        parent_eligibility = 0.2
+        mutation_chance = 0.1
         parent_lottery = 0.05
 
         parent_length = int(parent_eligibility*len(pop))
@@ -111,6 +136,7 @@ class GeneticKnapsack:
         Memory.updateMemory(len(children))
         parents.extend(children)
         return parents
+    '''
 
 '''
 if __name__ == "__main__":

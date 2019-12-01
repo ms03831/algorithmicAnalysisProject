@@ -1,16 +1,21 @@
 import math
 import random
-
+from myMemory import *
 ALPHA = 0.5
 
 
+
+
 def annealing_algorithm(list_of_tuples, capacity, init_temp=100, steps=100):
+    Memory.updateMemory(len(list_of_tuples))
     weight_cost = [(i[1], i[2]) for i in list_of_tuples]
     number = len(list_of_tuples)
     start_sol = init_solution(weight_cost, capacity)
     best_cost, solution = simulate(start_sol, weight_cost, capacity, init_temp, steps)
+    Memory.updateMemory(number)
     best_combination = [0] * number
     list_of_selected = []
+    Memory.updateMemory(len(solution))
     for idx in solution:
         list_of_selected.append(list_of_tuples[idx][0])
     return list_of_selected
@@ -21,9 +26,11 @@ def init_solution(weight_cost, max_weight):
     By adding a random item while weight is less max_weight
     """
     solution = []
+    Memory.updateMemoryMemory(len(weight_cost))
     allowed_positions = list(range(len(weight_cost)))
     while len(allowed_positions) > 0:
         idx = random.randint(0, len(allowed_positions) - 1)
+        Memory.updateMemoryMemory(1)
         selected_position = allowed_positions.pop(idx)
         if get_cost_and_weight_of_knapsack(solution + [selected_position], weight_cost)[1] <= max_weight:
             solution.append(selected_position)
@@ -37,6 +44,7 @@ def get_cost_and_weight_of_knapsack(solution, weight_cost):
     """
     cost, weight = 0, 0
     for item in solution:
+        Memory.updateMemoryMemory(2)
         weight += weight_cost[item][0]
         cost += weight_cost[item][1]
     return cost, weight
@@ -46,15 +54,23 @@ def moveto(solution, weight_cost, max_weight):
     """All possible moves are generated"""
     moves = []
     for idx, _ in enumerate(weight_cost):
+        Memory.updateMemoryMemory(len(solution))
         if idx not in solution:
+            Memory.updateMemoryMemory(len(solution))
             move = solution[:]
+            Memory.updateMemoryMemory(1)
             move.append(idx)
             if get_cost_and_weight_of_knapsack(move, weight_cost)[1] <= max_weight:
+                Memory.updateMemoryMemory(1)
                 moves.append(move)
     for idx, _ in enumerate(solution):
+        Memory.updateMemoryMemory(len(solution))
         move = solution[:]
+        Memory.updateMemoryMemory(1)
         del move[idx]
+        Memory.updateMemoryMemory(len(moves))
         if move not in moves:
+            Memory.updateMemoryMemory(1)
             moves.append(move)
     return moves
 
@@ -69,9 +85,11 @@ def simulate(solution, weight_cost, max_weight, init_temp, steps):
     current_sol = solution
     while True:
         current_cost = get_cost_and_weight_of_knapsack(best, weight_cost)[0]
+
         for i in range(0, steps):
             moves = moveto(current_sol, weight_cost, max_weight)
             idx = random.randint(0, len(moves) - 1)
+            Memory.updateMemory(1)
             random_move = moves[idx]
             delta = get_cost_and_weight_of_knapsack(random_move, weight_cost)[0] - best_cost
             if delta > 0:

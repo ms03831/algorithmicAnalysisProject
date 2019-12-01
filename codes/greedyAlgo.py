@@ -22,6 +22,7 @@ def greedyAlgo(weightValue,capacity):
     for i in ratios_index:    #going to the index with max ratio first
         Memory.updateMemory(1)
         if weightValue[i][1] <= capacity:
+            Memory.updateMemory(2)
             capacity -= weightValue[i][1]
             knapsack.append(weightValue[i][0])
     return knapsack

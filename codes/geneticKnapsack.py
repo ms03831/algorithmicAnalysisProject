@@ -44,8 +44,12 @@ class GeneticKnapsack:
                 total_weight += self.items[index][1]
             index += 1
             
-        if total_weight > self.capacity:
-            return 0
+        while total_weight > self.capacity:
+            r = random.randint(0, len(target) - 1)
+            if target[r] == 1:
+                target[r] = 0
+                total_weight -= self.items[r][1]
+                total_value -= self.items[r][2]
         else:
             return total_value
 

@@ -26,11 +26,11 @@ def init_solution(weight_cost, max_weight):
     By adding a random item while weight is less max_weight
     """
     solution = []
-    Memory.updateMemoryMemory(len(weight_cost))
+    Memory.updateMemory(len(weight_cost))
     allowed_positions = list(range(len(weight_cost)))
     while len(allowed_positions) > 0:
         idx = random.randint(0, len(allowed_positions) - 1)
-        Memory.updateMemoryMemory(1)
+        Memory.updateMemory(1)
         selected_position = allowed_positions.pop(idx)
         if get_cost_and_weight_of_knapsack(solution + [selected_position], weight_cost)[1] <= max_weight:
             solution.append(selected_position)
@@ -44,7 +44,7 @@ def get_cost_and_weight_of_knapsack(solution, weight_cost):
     """
     cost, weight = 0, 0
     for item in solution:
-        Memory.updateMemoryMemory(2)
+        Memory.updateMemory(2)
         weight += weight_cost[item][0]
         cost += weight_cost[item][1]
     return cost, weight
@@ -54,23 +54,23 @@ def moveto(solution, weight_cost, max_weight):
     """All possible moves are generated"""
     moves = []
     for idx, _ in enumerate(weight_cost):
-        Memory.updateMemoryMemory(len(solution))
+        Memory.updateMemory(len(solution))
         if idx not in solution:
-            Memory.updateMemoryMemory(len(solution))
+            Memory.updateMemory(len(solution))
             move = solution[:]
-            Memory.updateMemoryMemory(1)
+            Memory.updateMemory(1)
             move.append(idx)
             if get_cost_and_weight_of_knapsack(move, weight_cost)[1] <= max_weight:
-                Memory.updateMemoryMemory(1)
+                Memory.updateMemory(1)
                 moves.append(move)
     for idx, _ in enumerate(solution):
-        Memory.updateMemoryMemory(len(solution))
+        Memory.updateMemory(len(solution))
         move = solution[:]
-        Memory.updateMemoryMemory(1)
+        Memory.updateMemory(1)
         del move[idx]
-        Memory.updateMemoryMemory(len(moves))
+        Memory.updateMemory(len(moves))
         if move not in moves:
-            Memory.updateMemoryMemory(1)
+            Memory.updateMemory(1)
             moves.append(move)
     return moves
 

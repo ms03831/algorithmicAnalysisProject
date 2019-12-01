@@ -62,8 +62,17 @@ class Analyze:
         for i in range(len(self.functions)):
             plt.plot(size, times[i], label = self.names[i])
         plt.legend()
+        plt.title("Empirical Time")
         plt.show()
 
+
+        for i in range(len(self.functions)):
+            plt.plot(size, memories[i], label = self.names[i])
+        plt.legend()
+        plt.title("Memory Footprint")
+        plt.show()
+
+        
 
 
 

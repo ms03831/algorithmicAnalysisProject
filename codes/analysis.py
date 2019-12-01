@@ -5,6 +5,7 @@ from greedyAlgo import *
 from dynamic_programming import *
 from bruteForceKnapsack import *
 from SimulatedAnnealing import *
+from geneticKnapsack import *
 import matplotlib.pyplot as plt
 import random
 
@@ -28,8 +29,8 @@ class TestCases:
 
 class Analyze:
     def __init__(self):
-        self.functions = [Memory_Function, greedyAlgo, knapsack01_dp, annealing_algorithm]
-        self.names = ["Memory Functions", "Greedy Algo", "DP", "Randomized Algorithm"]
+        self.functions = [Memory_Function, greedyAlgo, knapsack01_dp, annealing_algorithm, GeneticKnapsack().solve]
+        self.names = ["Memory Functions", "Greedy Algo", "DP", "Randomized Algorithm", "Genetic Knapsack"]
         self.tests = TestCases()
         self.timeAnalyzer = MyTime()
         self.memoryAnalyzer = Memory()

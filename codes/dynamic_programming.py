@@ -23,6 +23,7 @@ def knapsack01_dp(items, limit):
  
     return result
 
+"""
 items = [("map", 9, 150), ("compass", 13, 35), ("water", 153, 200), ("sandwich", 50, 160),
     ("glucose", 15, 60), ("tin", 68, 45), ("banana", 27, 60), ("apple", 39, 40),
     ("cheese", 23, 30), ("beer", 52, 10), ("suntan cream", 11, 70), ("camera", 32, 30),
@@ -33,3 +34,4 @@ items = [("map", 9, 150), ("compass", 13, 35), ("water", 153, 200), ("sandwich",
 
 bagged = knapsack01_dp(items, 400)
 print(bagged)
+"""

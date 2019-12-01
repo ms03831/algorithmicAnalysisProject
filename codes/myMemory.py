@@ -4,11 +4,11 @@ class Memory:
 	def __init__(self):
 		pass
 
-	def updateMemory(int n);
+	def updateMemory(n):
 		""" 
 		increases memory footprint by n
 		"""
-		memoryFootprint += n
+		Memory.memoryFootprint += n
 
 	def resetMemory():
-		memoryFootprint = 0
+		Memory.memoryFootprint = 0

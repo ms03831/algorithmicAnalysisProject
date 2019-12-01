@@ -1,6 +1,9 @@
+from myMemory import *
+
 def knapsack01_dp(items, limit):
+    n= len(items)
     table = [[0 for w in range(limit + 1)] for j in range(len(items) + 1)]
- 
+    Memory.updateMemory(n**2)
     for j in range(1, len(items) + 1):
         item, wt, val = items[j-1]
         for w in range(1, limit + 1):
@@ -17,6 +20,7 @@ def knapsack01_dp(items, limit):
  
         if was_added:
             item, wt, val = items[j-1]
+            Memory.updateMemory(1)
             result.append(item)
             # result.append(items[j-1])
             w -= wt

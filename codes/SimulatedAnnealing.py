@@ -1,7 +1,7 @@
 import math
 import random
 from myMemory import *
-ALPHA = 0.5
+ALPHA = 2.5
 
 
 

@@ -27,7 +27,7 @@ class GeneticKnapsack:
         Memory.updateMemory(self.populationSize)
         population = sorted(population, key=lambda x: self.fitness(x), reverse=True)
         Memory.updateMemory(2)
-        #print(population[0], self.fitness(population[0]))
+        print(population[0], self.fitness(population[0]))
         return(population[0])
 
     def fitness(self, target):
@@ -44,8 +44,11 @@ class GeneticKnapsack:
                 total_weight += self.items[index][1]
             index += 1
             
-        if total_weight > self.capacity:
-            return 0
+        while total_weight > self.capacity:
+            r = random.randint(0, len(target) - 1)
+            if target[r] == 1:
+                target[r] = 0
+                total_weight -= self.items[r][1]
         else:
             return total_value
 

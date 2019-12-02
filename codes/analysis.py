@@ -109,7 +109,7 @@ class Analyze:
         plt.title("Optimal Solution(DP) vs the rest")
         plt.xlabel("number of items")
         plt.ylabel("value")
-        plt.savefig("../plots/correctness")
+        plt.savefig("../plots/correctness1")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -118,7 +118,7 @@ class Analyze:
         plt.title("Empirical Time: Average Case")
         plt.xlabel("number of items")
         plt.ylabel("Time")
-        plt.savefig("../plots/avgTime")
+        plt.savefig("../plots/avgTime1")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -127,7 +127,7 @@ class Analyze:
         plt.title("Empirical Time: Worst Case")
         plt.xlabel("number of items")
         plt.ylabel("Time")
-        plt.savefig("../plots/worstTime")
+        plt.savefig("../plots/worstTime1")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -136,7 +136,7 @@ class Analyze:
         plt.title("Empirical Time: Best Case")
         plt.xlabel("number of items")
         plt.ylabel("Time")
-        plt.savefig("../plots/bestTime")
+        plt.savefig("../plots/bestTime1")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -145,7 +145,7 @@ class Analyze:
         plt.title("Empirical Memory: Average Case")
         plt.xlabel("number of items")
         plt.ylabel("Memory")
-        plt.savefig("../plots/avgMem")
+        plt.savefig("../plots/avgMem1")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -154,7 +154,7 @@ class Analyze:
         plt.title("Empirical Memory: Worst Case")
         plt.xlabel("number of items")
         plt.ylabel("Memory")
-        plt.savefig("../plots/worstMem")
+        plt.savefig("../plots/worstMem1")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -163,7 +163,7 @@ class Analyze:
         plt.title("Empirical Memory: Best Case")
         plt.xlabel("number of items")
         plt.ylabel("Memory")
-        plt.savefig("../plots/bestMem")
+        plt.savefig("../plots/bestMem1")
         plt.show()
 
         

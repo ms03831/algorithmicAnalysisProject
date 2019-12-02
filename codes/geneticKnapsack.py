@@ -1,11 +1,11 @@
 import random
 from myMemory import *
-
+from collections import Counter
 
 class GeneticKnapsack:
     def __init__(self):
-        self.populationSize = 250
-        self.generations = 100
+        self.populationSize = 100
+        self.generations = 50
         self.items = None
         self.capacity = None
 
@@ -19,7 +19,11 @@ class GeneticKnapsack:
 
         for g in range(0, self.generations):
             #print("Generation %d with %d" % (generation, len(population)))
-            #population = sorted(population, key=lambda x: self.fitness(x), reverse=True)
+            population = sorted(population, key=lambda x: self.fitness(x), reverse=True)
+            fitnesses = [self.fitness(x) for x in population]
+            for i in fitnesses:
+                if fitnesses.count(i) > 0.9 * len(population):
+                    break
             #print('best score;', self.fitness(population[0]))     
             population = self.evolve_population(population)
             generation += 1
@@ -71,7 +75,7 @@ class GeneticKnapsack:
             target[r] = 0
         else:
             target[r] = 1
-
+    '''
     def evolve_population(self, pop):
         parent_eligibility = 0.2
         mutation_chance = 0.1
@@ -136,7 +140,7 @@ class GeneticKnapsack:
         Memory.updateMemory(len(children))
         parents.extend(children)
         return parents
-    '''
+
 
 '''
 if __name__ == "__main__":

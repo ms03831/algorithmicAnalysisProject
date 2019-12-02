@@ -44,7 +44,7 @@ def knapsack_brute_force(items, capacity):
             output[i] = 1
     #print('l', output)
             
-    return output
+    return [items[i][0] for i in range(len(output)) if output[i]]
 
 '''if __name__ == '__main__':
     n = 5

@@ -36,8 +36,8 @@ class TestCases:
 
 class Analyze:
     def __init__(self):
-        self.functions = [Memory_Function, greedyAlgo, knapsack01_dp, annealing_algorithm, GeneticKnapsack().solve, knapsack_brute_force]
-        self.names = ["Memory Functions", "Greedy Algo", "DP", "Randomized Algorithm", "Genetic Knapsack", "Brute Force"]
+        self.functions = [Memory_Function, greedyAlgo, knapsack01_dp, annealing_algorithm, GeneticKnapsack().solve]#, knapsack_brute_force]
+        self.names = ["Memory Functions", "Greedy Algo", "DP", "Randomized Algorithm", "Genetic Knapsack"]#, "Brute Force"]
         self.tests = TestCases()
         self.timeAnalyzer = MyTime()
         self.memoryAnalyzer = Memory()
@@ -49,29 +49,29 @@ class Analyze:
         times = [[[] for i in range(len(self.functions))] for itr in range(10)]
         memories = [[[] for i in range(len(self.functions))] for itr in range(10)]
         solutions = [[[] for i in range(len(self.functions))] for itr in range(10)]
-        size = list(TestCases().n)[:4]
+        size = list(TestCases().n)
        	for itr in range(10):
 	        if varyingCapacity:
 	            cases = self.tests.testsVaryingCapacity
 	            for n in cases:
-	            	if n < 50:
-		                print(n, "here")
-		                test_case  = cases[n]
-		                for i in range(len(self.functions)):
-		                    func = self.functions[i]
-		                    self.timeAnalyzer.start()
-		                    try:
-		                        s = func(test_case[0], test_case[1])
-		                        totVal = sum([test_case[0][j][2] for j in range(len(test_case[0])) if test_case[0][j][0] in s])
-		                        solutions[itr][i].append(totVal)
 
-		                    except RecursionError:
-		                        print("Skipping")
-		                    self.timeAnalyzer.stop()
-		                    times[itr][i].append(self.timeAnalyzer.elapsedTime)
-		                    self.timeAnalyzer.reset()
-		                    memories[itr][i].append(Memory.memoryFootprint)
-		                    Memory.resetMemory()
+	                print(n, "here")
+	                test_case  = cases[n]
+	                for i in range(len(self.functions)):
+	                    func = self.functions[i]
+	                    self.timeAnalyzer.start()
+	                    try:
+	                        s = func(test_case[0], test_case[1])
+	                        totVal = sum([test_case[0][j][2] for j in range(len(test_case[0])) if test_case[0][j][0] in s])
+	                        solutions[itr][i].append(totVal)
+
+	                    except RecursionError:
+	                        print("Skipping")
+	                    self.timeAnalyzer.stop()
+	                    times[itr][i].append(self.timeAnalyzer.elapsedTime)
+	                    self.timeAnalyzer.reset()
+	                    memories[itr][i].append(Memory.memoryFootprint)
+	                    Memory.resetMemory()
 	        print(solutions)
 	    #print(solutions)
 	
@@ -109,7 +109,7 @@ class Analyze:
         plt.title("Optimal Solution(DP) vs the rest")
         plt.xlabel("number of items")
         plt.ylabel("value")
-        
+        plt.savefig("../plots/correctness")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -118,6 +118,7 @@ class Analyze:
         plt.title("Empirical Time: Average Case")
         plt.xlabel("number of items")
         plt.ylabel("Time")
+        plt.savefig("../plots/avgTime")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -126,6 +127,7 @@ class Analyze:
         plt.title("Empirical Time: Worst Case")
         plt.xlabel("number of items")
         plt.ylabel("Time")
+        plt.savefig("../plots/worstTime")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -134,6 +136,7 @@ class Analyze:
         plt.title("Empirical Time: Best Case")
         plt.xlabel("number of items")
         plt.ylabel("Time")
+        plt.savefig("../plots/bestTime")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -142,6 +145,7 @@ class Analyze:
         plt.title("Empirical Memory: Average Case")
         plt.xlabel("number of items")
         plt.ylabel("Memory")
+        plt.savefig("../plots/avgMem")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -150,6 +154,7 @@ class Analyze:
         plt.title("Empirical Memory: Worst Case")
         plt.xlabel("number of items")
         plt.ylabel("Memory")
+        plt.savefig("../plots/worstMem")
         plt.show()
 
         for i in range(len(self.functions)):
@@ -158,6 +163,7 @@ class Analyze:
         plt.title("Empirical Memory: Best Case")
         plt.xlabel("number of items")
         plt.ylabel("Memory")
+        plt.savefig("../plots/bestMem")
         plt.show()
 
         

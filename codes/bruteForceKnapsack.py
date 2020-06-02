@@ -14,6 +14,7 @@ def powerset(items):
         
     return result
 
+
 def knapsack_brute_force(items, capacity):
     knapsack = []
     bestValue = 0
@@ -21,9 +22,7 @@ def knapsack_brute_force(items, capacity):
     Memory.updateMemory(len(items))
     output = ['0' for i in range(len(items))]
     
-   
     powSet = powerset(items)
-    
     Memory.updateMemory(len(powSet))
     
     for element in powSet:
@@ -37,13 +36,11 @@ def knapsack_brute_force(items, capacity):
     
     Memory.updateMemory(len(items))
     for i in range(0, len(items)):
-        
         Memory.updateMemory(len(knapsack))
         if items[i] in knapsack:
             Memory.updateMemory(1)
             output[i] = 1
     #print('l', output)
-            
     return [items[i][0] for i in range(len(output)) if output[i]]
 
 '''if __name__ == '__main__':

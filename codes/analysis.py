@@ -167,8 +167,5 @@ class Analyze:
         plt.show()
 
         
-
-
-
 Analyze().analyze()
 
